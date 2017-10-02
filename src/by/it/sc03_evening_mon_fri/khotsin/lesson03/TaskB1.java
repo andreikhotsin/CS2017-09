@@ -17,12 +17,6 @@ import java.util.Scanner;
 
 class TaskB1 {
     public static void main(String[] args) {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("enter an integer number");
-        int mysqr = keyboard.nextInt();
-
-        System.out.println(mysqr*mysqr);
+        Scanner sc=new Scanner(System.in);
     }
-
 }
-

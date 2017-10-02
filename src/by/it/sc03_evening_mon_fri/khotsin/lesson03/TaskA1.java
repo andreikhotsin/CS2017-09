@@ -1,6 +1,6 @@
 package by.it.sc03_evening_mon_fri.khotsin.lesson03;
 
-class  TaskA1 {
+class TaskA1 {
 /*
 напишите программу которая выводит на экран
 Hello world!
