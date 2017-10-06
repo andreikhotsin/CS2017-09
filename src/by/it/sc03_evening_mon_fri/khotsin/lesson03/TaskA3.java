@@ -7,10 +7,9 @@ package by.it.sc03_evening_mon_fri.khotsin.lesson03;
 
 class TaskA3 {
     public static void main(String[] args) {
-        int i = 2;
-        i = i*i;
-        int j = 3;
+        int i = 3;
+        int j = 4;
         int k = i*i + j*j;
-        System.out.println((j * j)) "+" + i * i + "=" + k;
+        System.out.println(i + "*" + i + "+" + j + "*" + j + "=" + k);
     }
 }
