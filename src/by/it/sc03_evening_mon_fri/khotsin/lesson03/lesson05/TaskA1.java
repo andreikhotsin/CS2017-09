@@ -24,7 +24,7 @@ package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson05;
 
 */
 
-class NoBreak {
+class TaskA1 {
     public static void main(String[] args) {
         int i;
 
