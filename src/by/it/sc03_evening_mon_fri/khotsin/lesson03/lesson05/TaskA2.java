@@ -24,6 +24,50 @@ package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson05;
 
  */
 
-public class TaskA2 {
+import java.util.Scanner;
+
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Util.println;
+
+
+class TaskA2 {
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("enter a  integer number of week");
+        int a;
+        do {
+            a = keyboard.nextInt();
+            switch (a) {
+                case 1:
+                    println("Понедельник");
+                    break;
+                case 2:
+                    println("Вторник");
+                    break;
+                case 3:
+                    println("Среда");
+                    break;
+                case 4:
+                    println("Четверг");
+                    break;
+                case 5:
+                    println("Пятница");
+                    break;
+                case 6:
+                    println("Суббота");
+                    break;
+                case 7:
+                    println("Понедельник");
+                    break;
+                default:
+                    println("Такого дня недели не существует");
+
+
+           }
+        } while (keyboard.hasNext());
+
+
+
+    }
 
 }
+
