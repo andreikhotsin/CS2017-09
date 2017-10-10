@@ -22,6 +22,28 @@ package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson05;
  */
 
 
-public class TaskA3 {
+import java.util.Scanner;
 
-}
+
+
+class TaskA3 {
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("enter  three numbers");
+        int a;
+        int b;
+        int c;
+        a = keyboard.nextInt();
+        b = keyboard.nextInt();
+        c = keyboard.nextInt();
+        if ((a == b) && (b == c)) {
+            System.out.println(a + " " + b + " " + c);
+        } else if (a == c) {
+            System.out.println(a + " " + c);
+        } else if (a == b) {
+            System.out.println(a + " " + b);
+        } else if (b == c) {
+            System.out.println(b + " " + c);
+        } else System.out.println("");
+    }
+    }

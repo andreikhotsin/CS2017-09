@@ -38,28 +38,28 @@ class TaskA2 {
             a = keyboard.nextInt();
             switch (a) {
                 case 1:
-                    println("Понедельник");
+                    println("понедельник");
                     break;
                 case 2:
-                    println("Вторник");
+                    println("вторник");
                     break;
                 case 3:
-                    println("Среда");
+                    println("среда");
                     break;
                 case 4:
-                    println("Четверг");
+                    println("четверг");
                     break;
                 case 5:
-                    println("Пятница");
+                    println("пятница");
                     break;
                 case 6:
-                    println("Суббота");
+                    println("суббота");
                     break;
                 case 7:
-                    println("Понедельник");
+                    println("понедельник");
                     break;
                 default:
-                    println("Такого дня недели не существует");
+                    println("такого дня недели не существует");
 
 
            }
