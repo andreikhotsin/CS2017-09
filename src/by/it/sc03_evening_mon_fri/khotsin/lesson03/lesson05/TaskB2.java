@@ -31,7 +31,7 @@ import java.util.Scanner;
         int x = keyboard.nextInt();
         int i = 1;
         int j = 1;
-        while(j <= x){
+        while(j <= x) {
             while (i <= x) {
                 System.out.print(i*j + " ");
                 i++;
