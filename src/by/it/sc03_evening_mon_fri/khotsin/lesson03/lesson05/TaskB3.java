@@ -24,7 +24,14 @@ package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson05;
 
  */
 
+import java.io.IOException;
 
-public class TaskB3 {
+class B3 {
 
+public static void main(String[]args) throws IOException {
+char mo;
+    System.out.println("enter");
+mo = (char) System.in.read();
+    System.out.println( mo + "ffas");
 }
+    }

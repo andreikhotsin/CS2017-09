@@ -23,6 +23,22 @@ package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson05;
 десять умножить на десять равно сто
 */
 
-public class TaskC3 {
+import java.util.Scanner;
+class TaskC3 {
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("enter  numbers");
+        int x = 10;
+        int i = 1;
+        int j = 1;
+        while(j <= x) {
+            while (i <= x) {
 
+                System.out.println(j + " умножить на " + i + " равно " + i*j);
+                i++;
+            }
+            i = 1;
+            j++;
+        }
+    }
 }
