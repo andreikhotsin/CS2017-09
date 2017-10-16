@@ -16,6 +16,24 @@ $$$$
 
  */
 
-public class TaskA2 {
-
+import java.util.Scanner;
+class TaskA2 {
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("enter m high");
+        int m = keyboard.nextInt();
+        System.out.println("enter  n length");
+        int n = keyboard.nextInt();
+        int i = 1;
+        int j = 1;
+        while(j <= m) {
+            while (i <= n) {
+                System.out.print("$");
+                i++;
+                if(i == n + 1){System.out.print("\n");}
+            }
+            i = 1;
+            j++;
+        }
+    }
 }
