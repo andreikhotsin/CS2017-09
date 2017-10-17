@@ -21,6 +21,26 @@ ABCDEFGHI
 ABCDEFGHIJ
 */
 
-public class TaskA3 {
-
+import java.util.Scanner;
+class TaskA3 {
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("enter size");
+        int size = keyboard.nextInt();
+        int i = 1;
+        int j = 1;
+        char ch;
+        ch = 'A';
+        while(j <= size) {
+           while (i <= j) {
+                System.out.print(ch);
+                i++;
+                ch++;
+                if( i > j ){System.out.print("\n");}
+            }
+            i = 1;
+            ch = 'A';
+            j++;
+        }
+    }
 }
