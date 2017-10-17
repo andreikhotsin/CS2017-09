@@ -20,7 +20,7 @@ $ $ $ $ $ $ $ $ $ $
 
 */
 
-class TaskA1 {
+class TaskB3 {
     public static void main(String[] args) {
         String x = " $";
         int i = 1;

@@ -26,7 +26,7 @@ package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson05;
 
 import java.io.IOException;
 
-class B3 {
+class TaskB3 {
 
 public static void main(String[]args) throws IOException {
 char mo;

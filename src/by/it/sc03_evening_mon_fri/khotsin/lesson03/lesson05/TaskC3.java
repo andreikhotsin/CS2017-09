@@ -24,7 +24,7 @@ package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson05;
 */
 
 import java.util.Scanner;
-class TaskC3 {
+class TaskC13 {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("enter  numbers");

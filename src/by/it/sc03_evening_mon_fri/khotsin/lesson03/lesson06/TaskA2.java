@@ -17,7 +17,7 @@ $$$$
  */
 
 import java.util.Scanner;
-class TaskA2 {
+class Task1A2 {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("enter m high");

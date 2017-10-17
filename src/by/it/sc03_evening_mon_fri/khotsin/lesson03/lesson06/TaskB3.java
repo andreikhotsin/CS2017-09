@@ -16,6 +16,6 @@ package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson06;
  */
 
 
-public class TaskB3 {
+ class Task1B3 {
 
 }
