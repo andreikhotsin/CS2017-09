@@ -1,89 +1,58 @@
-package by.it.sc03_evening_mon_fri.khotsin.lesson03;
+package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson07;
 
 import org.junit.Test;
 
 import java.io.*;
 import java.lang.reflect.Method;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 //поставьте курсор на следующую строку и нажмите Ctrl+Shift+F10
 public class Testing {
 
-
-    @Test
+    @Test(timeout = 500)
     public void testTaskA1() throws Exception {
-        Testing testing = new Testing(TaskA1.class);
-        testing.contains("Hello world!");
+        run("1\n2\n3\n4\n5\n6\n7\n8\n9\n0\n").
+                include("0\n9\n8\n7\n6\n5\n4\n3\n2\n1\n");
+        run("1\n-2\n3\n4\n5\n666\n7\n8\n9\n0\n").
+                include("0\n9\n8\n7\n666\n5\n4\n3\n-2\n1\n");
     }
 
-    @Test
+
+    @Test(timeout = 500)
     public void testTaskA2() throws Exception {
-        Testing testing = new Testing(TaskA2.class);
-        testing.contains(
-                "Я начинаю изучать Java!\n" +
-                        "Я начинаю изучать Java!\n" +
-                        "Я начинаю изучать Java!\n" +
-                        "Я начинаю изучать Java!\n" +
-                        "Я начинаю изучать Java!\n"
-        );
+        run("ONE\nTWO\nTHREE\nFOUR\nFIVE\nEND\n").include("[ONE, TWO, THREE, FOUR, FIVE]");
+        run("ONE\nEND\n").include("[ONE]");
     }
 
-    @Test
-    public void testTaskA3() throws Exception {
-        Testing testing = new Testing(TaskA3.class);
-        testing.contains("3*3+4*4=25");
-    }
-
-    @Test
+    @Test(timeout = 500)
     public void testTaskB1() throws Exception {
-        Testing testing = new Testing(TaskB1.class, "7");
-        testing.contains("49");
+        String[] lines=run("").stringWriter.toString().split("\n");
+        assertTrue("Неверный размер",lines.length==6 && lines[0].trim().equals("5"));
     }
 
-    @Test
+
+    @Test(timeout = 500)
     public void testTaskB2() throws Exception {
-        Testing testing = new Testing(TaskB2.class);
-        testing.contains("20");
+        run("1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n22\n33\n44\n55\n66\n77\n88\n99\n0")
+                .include("a=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n" +
+                        "b=[11, 22, 33, 44, 55, 66, 77, 88, 99, 0]\n");
     }
 
-    @Test
-    public void testTaskB3() throws Exception {
-        Testing testing = new Testing(TaskB3.class);
-        testing.contains("C Новым Годом");
-    }
 
-    @Test
+    @Test(timeout = 500)
     public void testTaskC1() throws Exception {
-        Testing testing = new Testing(TaskC1.class, "7\n3\n");
-        testing.contains("Sum = 10\n");
+        run("1\n2\n3\n4\n5\n6\n7\n8\n9\n44\n55\n11\n11\n12\n14\n12\n45\n38\n88\n77").
+                include("3\n6\n9\n12\n12\n45\n2\n4\n6\n8\n44\n12\n14\n12\n38\n88\n1\n5\n7\n55\n11\n11\n77");
     }
 
-    @Test
+    @Test(timeout = 500)
     public void testTaskC2() throws Exception {
-        Testing testing = new Testing(TaskC2.class, "34\n26\n");
-        testing.contains(
-                "DEC:34+26=60\n" +
-                        "BIN:100010+11010=111100\n" +
-                        "HEX:22+1a=3c\n" +
-                        "OKT:42+32=74\n");
+        run("1\n-2\n3\n4\n5\n666\n7\n8\n9\n0\n1\n-1\n3\n4\n5\n665\n7\n8\n9\n0\n").
+                include("666\n665\n9\n9\n8\n8\n7\n7\n5\n5\n4\n4\n3\n3\n1\n1\n0\n0\n-1\n-2");
     }
 
-    @Test
-
-    public void testTaskC3() throws Exception {
-        Testing testing = new Testing(TaskC3.class, "75\n");
-        testing.contains("29.51\n");
-        testing = new Testing(TaskC3.class, "100\n");
-        testing.contains("39.35\n");
-        try {
-            Method m = TaskC3.class.getDeclaredMethod("getWeight", int.class);
-            assertEquals((Double) m.invoke(null, 100), 39.35, 1e-100);
-            assertEquals((Double) m.invoke(null, 75), 29.51, 1e-100);
-        } catch (NoSuchMethodException e) {
-            org.junit.Assert.fail("Метод getWeight не найден");
-        }
-    }
 
     /*
     ===========================================================================================================
@@ -91,17 +60,46 @@ public class Testing {
     Но изучить как он работает - можно, это всегда будет полезно.
     ===========================================================================================================
      */
+    //метод находит и создает класс для тестирования
+    //по имени вызывающего его метода, testTaskA1 будет работать с TaskA1
+    private static Testing run(String in) {
+        Throwable t = new Throwable();
+        StackTraceElement trace[] = t.getStackTrace();
+        StackTraceElement element;
+        int i = 0;
+        do {
+            element = trace[i++];
+        }
+        while (!element.getMethodName().contains("test"));
+
+        String[] path = element.getClassName().split("\\.");
+        String nameTestMethod = element.getMethodName();
+        String clName = nameTestMethod.replace("test", "");
+        clName = element.getClassName().replace(path[path.length - 1], clName);
+        System.out.println("\n---------------------------------------------");
+        System.out.println("Старт теста для " + clName + "\ninput:" + in);
+        System.out.println("---------------------------------------------");
+        return new Testing(clName, in);
+    }
+
     public Testing() {
         //Конструктор тестов
     }
 
     //Конструктор тестов
-    private Testing(Class<?> c) {
-        this(c, "");
-    }
+    //    private Testing(String className) {
+    //        this(className, "");
+    //    }
 
-    //Конструктор тестов
-    private Testing(Class<?> c, String in) {
+    //Основной конструктор тестов
+    private Testing(String className, String in) {
+        //this.className = className;
+        Class<?> c = null;
+        try {
+            c = Class.forName(className);
+        } catch (ClassNotFoundException e) {
+            fail("Не найден класс " + className);
+        }
         reader = new StringReader(in); //заполнение ввода
         InputStream inputStream = new InputStream() {
             @Override
@@ -124,8 +122,20 @@ public class Testing {
     }
 
     //проверка вывода
-    private void contains(String str) {
+    private Testing is(String str) {
+        assertTrue("Ожидается такой вывод:\n<---начало---->\n" + str + "<---конец--->",
+                stringWriter.toString().equals(str));
+        return this;
+    }
+
+    private Testing include(String str) {
         assertTrue("Строка не найдена: " + str + "\n", stringWriter.toString().contains(str));
+        return this;
+    }
+
+    private Testing exclude(String str) {
+        assertTrue("Лишние данные в выводе: " + str + "\n", !stringWriter.toString().contains(str));
+        return this;
     }
 
 
