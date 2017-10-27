@@ -1,4 +1,4 @@
-package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson08;
+package by.it.sc03_evening_mon_fri.khotsin.lesson08;
 
 /*
 Доработайте класс Dog.
@@ -30,6 +30,39 @@ boolean win(Dog otherDog)
 */
 
 
+import java.io.IOException;
+import java.util.Scanner;
+
 public class TaskC1 {
+
+    public static void main(String[] args) throws IOException {
+
+        Scanner scanner = new Scanner(System.in);
+
+        String dog1Name = scanner.next();
+        int dog1Age = scanner.nextInt();
+        int dog1Weight = scanner.nextInt();
+        double dog1Power = scanner.nextDouble();
+
+        Dog dog1 = new Dog(dog1Name, dog1Age, dog1Weight, dog1Power);
+
+        String dog2Name = scanner.next();
+        int dog2Age = scanner.nextInt();
+        int dog2Weight = scanner.nextInt();
+        double dog2Power = scanner.nextDouble();
+
+        Dog dog2 = new Dog(dog2Name, dog2Age, dog2Weight, dog2Power);
+
+        if (dog1.win(dog2)) {
+
+            System.out.println(dog1.getName());
+
+        } else {
+
+            System.out.println(dog2.getName());
+
+        }
+
+    }
 
 }

@@ -1,4 +1,4 @@
-package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson08;
+package by.it.sc03_evening_mon_fri.khotsin.lesson08;
 
 /*
 
@@ -27,5 +27,40 @@ double averageAge(Dog[] dogs){.....}; //должен вычислять сред
 
 public class TaskB1 {
 
+    public static void main(String[] args) {
+
+        Dog[] dogs = new Dog[5];
+
+        dogs[0] = new Dog("Шарик", 1);
+        dogs[1] = new Dog("Жучка", 2);
+        dogs[2] = new Dog("Бобик", 3);
+        dogs[3] = new Dog("Барбос", 4);
+        dogs[4] = new Dog("Полкан", 5);
+
+        /*dogs[0] = new Dog();
+        dogs[0].setName("Шарик");
+        dogs[0].setAge(1);
+
+        dogs[1] = new Dog();
+        dogs[1].setName("Жучка");
+        dogs[1].setAge(2);
+
+        dogs[2] = new Dog();
+        dogs[2].setName("Бобик");
+        dogs[2].setAge(3);
+
+        dogs[3] = new Dog();
+        dogs[3].setName("Барбос");
+        dogs[3].setAge(4);
+
+        dogs[4] = new Dog();
+        dogs[4].setName("Полкан");
+        dogs[4].setAge(5);*/
+
+        DogHelper.printAllNames(dogs);
+        System.out.println();
+        System.out.println(DogHelper.averageAge(dogs));
+
+    }
 
 }

@@ -1,4 +1,4 @@
-package by.it.sc03_evening_mon_fri.khotsin.lesson03.lesson08;
+package by.it.sc03_evening_mon_fri.khotsin.lesson08;
 
 import org.junit.Test;
 
